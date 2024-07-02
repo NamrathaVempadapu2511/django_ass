@@ -57,6 +57,8 @@ def patients_details(request):
     Password = Password
     ConfirmPassword = request.GET.get("ConfirmPassword", "default")
     ConfirmPassword = ConfirmPassword
+    if Password != ConfirmPassword:
+        return HttpResponse("Passwords and confirm password are not matched.")
     Image = request.GET.get("Image", "default")
     Image = Image
     params = {'first_name': first_name, 'last_name': last_name, 'address_line1': address_line1, 'city': city,
